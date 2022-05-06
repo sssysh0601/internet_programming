@@ -21,7 +21,40 @@ app.use(bodyParser.json());
 app.use(cors());
 
 
+app.post("/signup", (req,res)=>{
+    const ID = req.body.ID;
+    const pass = req.body.pass;
 
+    connection.query("INSERT INTO user(ID, pass) values (?,?)",[ID,pass],
+    function(err,rows,fields){
+        if(err){
+            console.log("가입 실패");
+            // console.log(err);
+        }else{
+            console.log("가입 성공");
+            // console.log(rows);
+        };
+    });
+
+    
+});
+
+app.post("/login", (req,res)=>{
+    const ID = req.body.ID;
+    
+    // console.log(req.body);
+    connection.query("SELECT pass from user where ID=?",[ID],
+    function(err,rows,fields){
+        if(err){
+            console.log("잘못된 정보");
+        }else{
+            console.log("정확한 정보");
+            res.json(rows[0]);
+        };
+    });
+
+    
+});
 
 
 app.post("/load", (req,res)=>{
