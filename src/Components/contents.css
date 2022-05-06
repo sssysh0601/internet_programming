@@ -1,8 +1,10 @@
 .container {
     margin-top: -0.3vh;
-    height: 85vh;
+    height: 85vh;}
+.side{
+    float: right;
+    padding-top: 5vh;
 }
-
 
 .lf-menu-nav{
     margin-top: 50px;

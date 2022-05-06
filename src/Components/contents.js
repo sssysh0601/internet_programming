@@ -44,22 +44,60 @@ function Contents() {
 
 
 
+   const [ID, setId] = useState('');
+   const [pass, setPass] = useState('');
+   const [temppass, setTemppass] = useState('');
+
 
    const [text, setText] = useState('');
    const [title, setTitle] = useState('');
    const [writer, setWriter] = useState('');
-
    const [post, setPost] = useState([]);
 
-   const handleChange1 = (e) => {
+   
+   const handleChange1 = (e) => {           //ID 핸들러
+      setId(e.target.value);
+   };
+   const handleChange2 = (e) => {           //비밀번호 핸들러
+      setPass(e.target.value);
+   };
+
+   const handleChange3 = (e) => {          //글종류 핸들러
       setText(e.target.value);
    };
-   const handleChange2 = (e) => {
+   const handleChange4 = (e) => {          //글제목 핸들러
       setTitle(e.target.value);
    };
-   const handleChange3 = (e) => {
+   const handleChange5 = (e) => {          //작성자 핸들러
       setWriter(e.target.value);
    };
+
+   const submituser = () => {            //로그인 함수
+      const user = {
+         ID: ID,
+         pass: pass,
+      };
+
+      fetch("http://localhost:3001/login", {
+         method: "post", // 통신방법
+         headers: {
+            "content-type": "application/json",
+         },
+         body: JSON.stringify(user),
+      })
+         .then((res) => res.json())
+         .then((json) => {
+          setTemppass(json);
+         });
+         if(temppass.pass==user.pass){
+             alert("로그인성공");
+         }
+         else{
+             alert("로그인실패");
+         }
+   };
+
+
 
    const submitpost = () => {            //포스팅 추가 (임시)
       const post = {
@@ -75,12 +113,10 @@ function Contents() {
          },
          body: JSON.stringify(post),
       })
-         .then((res) => res.json())
-         .then((json) => {
-            setText(json);
-         });
          loadpost();
    };
+
+   
    const loadpost = () => {               //포스팅 새로 고침해서 가져오기
       fetch("http://localhost:3001/load", {
          method: "post",
@@ -105,7 +141,7 @@ function Contents() {
       })
          .then((res) => res.json())
          .then((json) => {
-            setPost(json);
+            setPost("");
          });
    };
 
@@ -121,17 +157,39 @@ function Contents() {
          .then((json) => {
             setPost(json);
          });
-   }, [])
+   },[])
 
 
    return (
-      <><div>
+      <><div className="side">
+         <table className="logintable">
+            <tr>
+         <input onChange={handleChange1} name="id" placeholder="ID" />
+         </tr>
+         <tr>&nbsp;</tr>
+         <tr>
+         <input onChange={handleChange2} name="id" placeholder="PASS" />
+         </tr>
+         <button onClick={submituser}>로그인</button>
+         <Link to="/signup"><button>회원가입</button></Link>
+ 
+         </table>
+         <div className="side">
+         <table>
+            <tr>
          <input onChange={handleChange1} name="id" placeholder="글종류" />
+         </tr>
+         <tr>
          <input onChange={handleChange2} name="id" placeholder="글제목" />
+         </tr>
+         <tr>
          <input onChange={handleChange3} name="id" placeholder="작성자" />
+         </tr>
          <button onClick={submitpost}>추가하기</button>
          <button onClick={loadpost}>새로고침</button>
          <button onClick={deletepost}>삭제</button>
+         </table>
+         </div>
       </div>
 
          <div className="container" style={{ fontFamily: 'Noto Sans Korean,Malgun Gothic,sans-serif' }}>
@@ -165,7 +223,7 @@ function Contents() {
                            <td>10조</td>
                            <td></td>
                         </tr>
-                        {post ? <>
+                        {post!=""? <>
                            {post.map(posting => <tr>
                               <td>{posting.post_id}</td>
                               <td>{posting.kind}</td>
@@ -175,7 +233,13 @@ function Contents() {
                               <td>{posting.post_writer}</td>
                               <td>{posting.post_date}</td>
                            </tr>)}</>
-                           : <></>}
+                           : <><tr>
+                           <td>&nbsp;</td>
+                           <td></td>
+                           <td> </td>
+                           <td></td>
+                           <td></td>
+                        </tr></>}
                      </tbody>
                   </table>
                </div>
