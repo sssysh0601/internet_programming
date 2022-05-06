@@ -1,8 +1,9 @@
 import React,{Component} from "react";
+import {Link} from 'react-router-dom';
 import './Header.css';
 
-class Header extends Component{
-    render(){
+function Header(props){
+
     return (
         <header className="Header">
             <div className= "Title-contents">
@@ -11,15 +12,14 @@ class Header extends Component{
             </div>
                 <nav className="Title-nav">
                 <ul>
-                        <li><a href="#">MyPage</a></li>
-                        <li className="Login-text"><a href="#">로그인</a></li>
-                        <li className="Join-text"><a href="#">회원가입</a></li>
+                <li className="Login-text"><Link to="/login">글쓰기</Link></li>
+                        <li className="Join-text"><Link to="/signup">회원가입</Link></li>
 
                 </ul>
                 </nav>
             </div>
         </header>
     );
-  }
+  
 }
 export default Header;
