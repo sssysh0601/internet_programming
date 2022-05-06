@@ -1,25 +1,22 @@
 .container {
-<<<<<<< HEAD
     margin-top: -0.3vh;
-    height: 85vh;}
-.side{
-    float: right;
-    padding-top: 5vh;
-=======
-    margin-top: 0.3vh;
     height: 85vh;
     border: 5px solid #000000;
     border-radius: 20px;
-    background-image: url(/login/img_logo.png);
+    background-image: url(/public/img_logo.png);
     background-repeat: no-repeat;
     background-position: center;
     background-color: white;
     text-align: center;
 }
+.side{
+    float: right;
+    padding-top: 5vh;
+
+}
 
 body{
     background-color: rgba(128, 128, 128, 0.104);
->>>>>>> f3c67cf16bcd224e8de7b9961f0f69cb66eb251b
 }
 
 .lf-menu-nav{
