@@ -22,6 +22,8 @@ import React, { Component } from 'react'
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import Start from "./Components/Start";
+import login from "./Components/Login";
+import signup from "./Components/Signup";
 import {
   Switch,
   Route,
@@ -42,7 +44,8 @@ export default class App extends Component {
     return (
       <div>
 <Route exact={true} path="/" component={Start} />
-
+<Route exact={true} path="/login" component={login} />
+<Route exact={true} path="/signup" component={signup} />
       </div>
     )
   }
