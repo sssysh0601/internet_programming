@@ -1,5 +1,5 @@
 .container {
-    margin-top: -0.3vh;
+    margin-top: 5vh;
     height: 85vh;
     border: 5px solid #000000;
     border-radius: 20px;
@@ -80,8 +80,8 @@ td,th{
 
 button.btn1 {
     margin-left: 5vh;
-    width: 15vh;
-    height: 48vh;
+    width: 13vh;
+    height: 40vh;
     float: left;
     background: transparent;
     border-width: 0ch;
@@ -99,8 +99,8 @@ button.btn2 {
    float: left;
     top: 15vh;
     right : 50vh; 
-    width: 15vh;
-    height: 48vh;
+    width: 13vh;
+    height: 40vh;
     background: transparent;
     border-width: 0ch;
     background-image: url(/src/image/btn_right.png);
