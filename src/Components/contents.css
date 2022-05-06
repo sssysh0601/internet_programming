@@ -1,22 +1,41 @@
 .container {
-    margin-top: -0.3vh;
+    margin-top: 0.3vh;
     height: 85vh;
+    border: 5px solid #000000;
+    border-radius: 20px;
+    background-image: url(/login/img_logo.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: white;
+    text-align: center;
+}
+
+body{
+    background-color: rgba(128, 128, 128, 0.104);
 }
 
 
 .lf-menu-nav{
     margin-top: 50px;
-    margin-bottom: 3vh;
+    
     height:50vh;
+    
+    width:80%;
+    display: inline-block;
 }
 
 .tablediv{
-    background-color: lightgreen;
+    background-color: white;
     overflow: scroll;
-    height: 25vh;
+    height: 20vh;
     width: 100%;
+    border:  1px solid #000000;
 }
-.tablediv::-webkit-scrollbar-track{ background:transparent; 
+.tablediv::-webkit-scrollbar-track{ 
+    background:transparent; 
+}
+.tablediv::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
 }
 
 .board_list{
@@ -26,20 +45,26 @@
 }
 .imgslide{
     width: 70%;
+    max-width: 700px;
     margin: auto;
     display: block;
     float: left;
+    
 }
 .writebutton{
     margin-top:1vh;
     float: right;
     width:15vh;
+    color: white;
+    border: 1px;
+    border-radius: 40px;
+    background: linear-gradient(to right, rgb(46, 147, 255), rgb(24, 2, 137));
 }
 
 thead{
     position: sticky;
     top: 0px;
-    background-color: gray !important;
+    background-color: lightblue !important;
    
 }
 td,th{
@@ -56,11 +81,15 @@ button.btn1 {
     float: left;
     background: transparent;
     border-width: 0ch;
+    background-image: url(/src/image/btn_left.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 70px;
+    color: rgba(255, 255, 255, 0);
+
   }
   button.btn1:hover {
-     display: block;
-     opacity:0.2;
-     background-color: wheat;
+    background-image: url(/src/image/btn_left_hover.png);
   }
 button.btn2 {
    float: left;
@@ -70,9 +99,12 @@ button.btn2 {
     height: 48vh;
     background: transparent;
     border-width: 0ch;
+    background-image: url(/src/image/btn_right.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 70px;
+    color: rgba(255, 255, 255, 0);
   }
   button.btn2:hover {
-     display: block;
-     opacity:0.2;
-     background-color: wheat;
+    background-image: url(/src/image/btn_right_hover.png);
   }
