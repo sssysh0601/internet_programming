@@ -43,7 +43,7 @@ app.post("/login", (req,res)=>{
     const ID = req.body.ID;
     
     // console.log(req.body);
-    connection.query("SELECT pass from user where ID=?",[ID],
+    connection.query("SELECT * from user where ID=?",[ID],
     function(err,rows,fields){
         if(err){
             console.log("잘못된 정보");
@@ -51,11 +51,23 @@ app.post("/login", (req,res)=>{
             console.log("정확한 정보");
             res.json(rows[0]);
         };
+    }); 
+});
+
+app.post("/getpost", (req,res)=>{
+    const ID = req.body.ID;
+    connection.query("SELECT count(*) as 'count' from post where user_id=?",[ID],
+    function(err,rows,fields){
+        if(err){
+            console.log("게시글 없음");
+        }else{
+            console.log("게시글 출력");
+            res.json(rows[0]);
+        };
     });
 
     
 });
-
 
 app.post("/load", (req,res)=>{
     connection.query("SELECT post_id, kind, post_title,post_writer, SUBSTRING_INDEX(post_date,' ',1)as post_date FROM post;",
@@ -87,9 +99,9 @@ app.post("/write", (req,res)=>{
     const kind = req.body.kind;
     const title = req.body.title;
     const writer = req.body.writer;
-    
+    const ID = req.body.ID;
     // console.log(req.body);
-    connection.query("INSERT INTO post(kind, post_title, post_writer,post_date) values (?,?,?,default)",[kind,title,writer],
+    connection.query("INSERT INTO post(kind, post_title, post_writer,post_date,user_id) values (?,?,?,default,?)",[kind,title,writer,ID],
     function(err,rows,fields){
         if(err){
             console.log("추가 실패");
