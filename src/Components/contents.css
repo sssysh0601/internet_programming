@@ -112,3 +112,10 @@ button.btn2 {
   button.btn2:hover {
     background-image: url(/src/image/btn_right_hover.png);
   }
+
+  .logintable{
+      width: 20vh;
+  }
+  .userinfo{
+      padding-bottom: 30px;
+  }
