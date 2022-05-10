@@ -96,12 +96,12 @@ app.post("/deletepost", (req,res)=>{
 
 
 app.post("/write", (req,res)=>{
-    const kind = req.body.kind;
+    const text = req.body.text;
     const title = req.body.title;
     const writer = req.body.writer;
     const ID = req.body.ID;
     // console.log(req.body);
-    connection.query("INSERT INTO post(kind, post_title, post_writer,post_date,user_id) values (?,?,?,default,?)",[kind,title,writer,ID],
+    connection.query("INSERT INTO post(text,kind, post_title, post_writer,post_date,user_id) values (?,'자유글',?,?,default,?)",[text,title,writer,ID],
     function(err,rows,fields){
         if(err){
             console.log("추가 실패");
@@ -114,6 +114,26 @@ app.post("/write", (req,res)=>{
 
     
 });
+
+app.post("/getposting", (req,res)=>{
+    const post_id = req.body.post_id;
+
+    // console.log(req.body);
+    connection.query("select * from post where post_id=?",[post_id],
+    function(err,rows,fields){
+        if(err){
+            console.log("뽑아오기 실패");
+            // console.log(err);
+        }else{
+            console.log("뽑아오기 성공");
+            res.json(rows[0]);
+        };
+    });
+
+    
+});
+
+
 app.listen(port, ()=>{
     console.log(`Connect at http://localhost:${port}`); // '가 아닌 좌측상단의 esc버튼 밑의 `다.
 })
