@@ -49,7 +49,7 @@ function Login() {
         <div className="App">
             <Header />
         <div class="wrap">
-            <div class="container">
+            <div class="content">
                 <div class="login">
                     <div class="wrapImg">
                         <img id="imgLogin" src="img_login.png" alt="login text" />

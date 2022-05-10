@@ -194,10 +194,12 @@ function Contents(props) {
          {!props.isLogin?
                <>
                   <tr>
+                  <h5>ID</h5>
                      <input onChange={handleChange1} name="id" placeholder="ID" autoComplete="off"/>
                   </tr>
-                  <tr>&nbsp;</tr>
+                  {/* <tr>&nbsp;</tr> */}
                   <tr>
+                  <h5>Password</h5>
                      <input onChange={handleChange2} name="id" placeholder="PASS"  autoComplete="off"/>
                   </tr>
                   <button onClick={submituser}>로그인</button>

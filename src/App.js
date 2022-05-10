@@ -25,6 +25,7 @@ import Start from "./Components/Start";
 import Postpage from "./Components/Postpage";
 import Posting from "./Components/Posting";
 import signup from "./Components/Signup";
+import mypage from "./Components/Mypage";
 import {
   Switch,
   Route,
@@ -49,6 +50,7 @@ export default class App extends Component {
 <Route exact={true} path="/Postpage/:key" component={Postpage} />
 <Route exact={true} path="/Postpage/" component={Postpage} />
 <Route exact={true} path="/Posting/:post_id" component={Posting} />
+<Route exact={true} path="/mypage" component={mypage} />
       </div>
     )
   }

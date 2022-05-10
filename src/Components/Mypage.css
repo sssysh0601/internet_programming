@@ -1,0 +1,76 @@
+.mypage {
+    width: 80%;
+    float: left;
+    margin-left: 20px;
+    margin-top: 30px;
+    border: 5px solid #000000;
+    border-radius: 20px;
+    background-image: url(/public/img_logo.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: white;
+    background-position-x: center 10px;
+    text-align: center;
+    height: auto;
+    min-height: 100%;
+    margin-bottom: 8vh;
+    
+}
+
+#imgLogin{
+    width: 400px;
+}
+
+.wrap-image{
+    text-align: center;
+}
+
+
+#imgUser{
+    width: 100px;
+    height: 100px;
+    border: 4px solid white;
+    border-radius: 50%;
+    background-color: white;
+    margin-top: 0;
+}
+
+.mypageContent{
+    text-align: center;
+    background-color: white;
+    border: 1px solid #000000;
+    margin-left: 100px;
+    margin-right: 100px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.mypageContent h3{
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.mypage_tablediv{
+    background-color: white;
+    text-align: center;
+    overflow: scroll;
+    height: 20vh;
+    width: 100%;
+}
+
+.mypage_tablediv::-webkit-scrollbar-track{ 
+    background:transparent; 
+}
+.mypage_tablediv::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+}
+
+.mypage_board_list{
+    border-radius: 10px;
+    border-style: hidden;
+    box-shadow: 0 0 0 1px #000;
+    margin: 15px;
+    width: 98%;
+    border-collapse: collapse;
+}

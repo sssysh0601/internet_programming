@@ -16,7 +16,7 @@ function Header(props){
                 <nav className="Title-nav">
                 <ul>
                         <li className="Join-text"><Link to="/signup">회원가입</Link></li>
-                        <li><a href="#">My Page </a></li>
+                        <li><a href="/mypage">My Page </a></li>
 
 
                 </ul>

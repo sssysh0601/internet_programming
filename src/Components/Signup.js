@@ -41,7 +41,7 @@ function Signup() {
         <div className="App">
             <Header />
             <div class="wrap">
-                <div class="container">
+                <div class="content">
                     <div class="signup">
                         <div class="wrapImg">
                             <img id="imgLogin" src="img_signup.png" alt="login text" />

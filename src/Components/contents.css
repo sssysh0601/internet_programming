@@ -1,29 +1,95 @@
 .container {
-    margin-top: 5vh;
-    height: 85vh;
+    width: 80%;
+    float: left;
+    margin-left: 20px;
+    margin-top: 30px;
     border: 5px solid #000000;
     border-radius: 20px;
     background-image: url(/public/img_logo.png);
     background-repeat: no-repeat;
     background-position: center;
     background-color: white;
+    background-position-x: center 10px;
     text-align: center;
-}
-.side{
-    float: right;
-    padding-top: 5vh;
+    height: auto;
+    min-height: 100%;
+    margin-bottom: 8vh;
+    
 
 }
+.side{
+    padding-top: 34px;
+    text-align: center;
+    float: right;
+    padding-right: 15px;
+   }
+
+.logintable{
+    /* border: 3px solid #000000; */
+    background-color: white;
+    margin-right: 10px;
+    border-radius: 10px;
+    border-style: hidden;
+    box-shadow: 0 0 0 4px #000;
+    border-collapse: collapse;
+    
+}
+
+.logintable input{
+    width: 70%;
+    height: 30px;
+    border-radius: 30px;
+    margin-top: 10px;
+    padding: 0px 20px;
+    border: 1px solid lightgray;
+    outline: none;
+    font-size: 15px;
+}
+
+.logintable button{
+    background: none;
+    width: 70%;
+    margin-bottom: 10px;
+    border: 0;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.logintable :nth-child(3){
+    margin-top: 10px;
+    width: 70%;
+    height: 30px;
+    border: 0;
+    outline: none;
+    border-radius: 20px;
+    background: linear-gradient(to bottom, #3a4ca8f4, rgb(24, 2, 137));
+    color: white;
+    font-size: 15px;
+    letter-spacing: 2px;
+    /* float: right; */
+    font-weight: bold;
+}
+
+
+
+h5{
+    text-align: left;
+    padding-left: 20%;
+    font-size: 15px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
 
 body{
     background-color: rgba(128, 128, 128, 0.104);
 }
 
+
 .lf-menu-nav{
     margin-top: 50px;
     
     height:50vh;
-    
     width:80%;
     display: inline-block;
 }
@@ -62,13 +128,13 @@ body{
     color: white;
     border: 1px;
     border-radius: 40px;
-    background: linear-gradient(to right, rgb(46, 147, 255), rgb(24, 2, 137));
+    background: linear-gradient(to bottom, #3a4ca8f4, rgb(24, 2, 137));
 }
 
 thead{
     position: sticky;
     top: 0px;
-    background-color: lightblue !important;
+    background-color: rgba(128, 128, 128, 0.104) !important;
    
 }
 td,th{
@@ -111,11 +177,4 @@ button.btn2 {
   }
   button.btn2:hover {
     background-image: url(/src/image/btn_right_hover.png);
-  }
-
-  .logintable{
-      width: 20vh;
-  }
-  .userinfo{
-      padding-bottom: 30px;
   }
