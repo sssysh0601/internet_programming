@@ -1,0 +1,12 @@
+ .ck.ck-editor{
+    max-width: 90vh;
+    margin: 0 auto;
+  }
+  .ck-editor__editable_inline {
+    min-height: 50vh;
+}
+.title{
+    width: 90vh;
+    font-size: 30px;
+    margin:30px 0px;
+}
