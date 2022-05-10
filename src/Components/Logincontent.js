@@ -73,30 +73,10 @@ function Contents(props) {
       setWriter(e.target.value);
    };
 
-   const submituser = () => {            //로그인 함수
-      const user = {
-         ID: ID,
-         pass: pass,
-      };
-
-      fetch("http://localhost:3001/login", {
-         method: "post", // 통신방법
-         headers: {
-            "content-type": "application/json",
-         },
-         body: JSON.stringify(user),
-      })
-         .then((res) => res.json())
-         .then((json) => {
-            setTemppass(json)
-         });
-
-   };
 
    const getpost = ()=>{
       const user = {
-         ID: ID,
-         pass: pass,
+         ID: sessionStorage.getItem('user_id'),
       };
 
       fetch("http://localhost:3001/getpost", {
@@ -112,25 +92,13 @@ function Contents(props) {
          });
       }
       
-   useEffect(() => {
-      
-      if (temppass.pass === pass) {
-         alert("로그인성공");
-        setlogin(true);
-        sessionStorage.setItem('user_id', ID)
-        getpost();
-        document.location.href='/';
-      }
-
-    }, [temppass]);
-
 
    const submitpost = () => {            //포스팅 추가 (임시)
       const post = {
          kind: text,
          title: title,
          writer: writer,
-         ID: ID,
+         ID: sessionStorage.getItem('user_id'),
       };
 
       fetch("http://localhost:3001/write", {
@@ -141,7 +109,6 @@ function Contents(props) {
          body: JSON.stringify(post),
       })
       loadpost();
-      getpost();
    };
 
 
@@ -157,6 +124,7 @@ function Contents(props) {
          .then((json) => {
             setPost(json);
          });
+         getpost();
    };
 
    const deletepost = () => {               //포스팅 삭제
@@ -171,6 +139,7 @@ function Contents(props) {
          .then((json) => {
             setPost("");
          });
+         getpost();
    };
 
    useEffect(() => {                        //포스팅 가져오기 
@@ -185,33 +154,27 @@ function Contents(props) {
          .then((json) => {
             setPost(json);
          });
+         getpost();
    }, [])
 
 
+   const onLogout=() =>{
+      sessionStorage.removeItem('user_id');
+      document.location.href='/';
+   }
    return (
       <><div className="side">
          <table className="logintable" border='1'>
-         {!props.isLogin?
-               <>
-                  <tr>
-                     <input onChange={handleChange1} name="id" placeholder="ID" autoComplete="off"/>
-                  </tr>
-                  <tr>&nbsp;</tr>
-                  <tr>
-                     <input onChange={handleChange2} name="id" placeholder="PASS"  autoComplete="off"/>
-                  </tr>
-                  <button onClick={submituser}>로그인</button>
-                  <Link to="/signup"><button>회원가입</button></Link>
-               </>
-             :<>
              <tr>
-             <span>ID : {temppass.ID}</span>
+             <span>ID : {sessionStorage.getItem('user_id')}</span>
           </tr>
           <tr>&nbsp;</tr>
           <tr>
           <span>작성한 게시글 : {postcnt.count}</span>
           </tr>
-                 </>}
+          <tr>
+          <button type='button' onClick={onLogout}>로그아웃</button>
+          </tr>
          </table>
          <div className="side">
             <table>
@@ -263,7 +226,7 @@ function Contents(props) {
                            {post.map(posting => <tr>
                               <td>{posting.post_id}</td>
                               <td className="text-left">
-                                 <Link to="/posting:{posting.post_id}">
+                                 <Link to={`/posting/${posting.post_id}`}>
                                     {posting.post_title}</Link></td>
                               <td>{posting.post_writer}</td>
                               <td>{posting.post_date}</td>
@@ -278,6 +241,7 @@ function Contents(props) {
                      </tbody>
                   </table>
                </div>
+               <Link to ={`/Postpage/`}><button className="writebutton">글쓰기</button></Link>
             </div>
          </div></>
    )
