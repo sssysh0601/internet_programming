@@ -61,7 +61,16 @@ function Signup() {
                       
                         <div class="submit">
                         {pass == temppass ?
-                            <><span>비밀번호가 일치합니다.</span><input type="submit" disabled={false} value="submit" onClick={submitSignup} /></>
+                            <> {pass === '' ?
+                            <>
+                            <span>비밀번호를 입력해주세요.</span><input type="submit" disabled={false} value="submit" onClick={submitSignup} />
+                            </>
+                            :
+                            <>
+                            <span>비밀번호가 일치합니다.</span><input type="submit" disabled={false} value="submit" onClick={submitSignup} />
+                            </>
+                            }
+                            </>
                                 
                                 : 
                                 <><span>비밀번호가 일치하지 않습니다.</span><input type="submit" disabled={true} value="submit" /></>
