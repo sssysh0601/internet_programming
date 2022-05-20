@@ -1,3 +1,4 @@
+//게시글 보는 화면
 import React, { Component, useState, useEffect } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
