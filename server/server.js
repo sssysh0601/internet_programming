@@ -81,9 +81,47 @@ app.post("/load", (req,res)=>{
     })
 })
 
+app.post("/load2", (req,res)=>{
+    const user_id =req.body.ID;
+    connection.query("SELECT post_id, kind, post_title,post_writer, SUBSTRING_INDEX(post_date,' ',1)as post_date FROM post where user_id=?;",[user_id],
+    function(err,rows,fields){
+        if(err){
+            console.log("불러오기 실패");
+        }else{
+            console.log("불러오기 성공");
+            res.json(rows);
+        }
+    })
+})
+
+app.post("/load3", (req,res)=>{
+    const post_id =req.body.ID;
+    connection.query("SELECT * FROM post where post_id=?;",[post_id],
+    function(err,rows,fields){
+        if(err){
+            console.log("불러오기 실패");
+        }else{
+            console.log("불러오기 성공");
+            res.json(rows[0]);
+        }
+    })
+})
+
 
 app.post("/deletepost", (req,res)=>{
     connection.query("DELETE FROM post where post_id=(select post_id from(select max(post_id) from post)as a);",
+    function(err,rows,fields){
+        if(err){
+            console.log("삭제 실패");
+        }else{
+            console.log("삭제 성공");
+            res.json(rows);
+        }
+    })
+})
+app.post("/deletepost2", (req,res)=>{
+    const post_id = req.body.post_id;
+    connection.query("DELETE FROM post where post_id=?;",[post_id],
     function(err,rows,fields){
         if(err){
             console.log("삭제 실패");
@@ -129,8 +167,23 @@ app.post("/getposting", (req,res)=>{
             res.json(rows[0]);
         };
     });
-
+});
     
+app.post("/update", (req,res)=>{
+    const post_id = req.body.post_id;
+    const title = req.body.title;
+    const text = req.body.text;
+    // console.log(req.body);
+    connection.query("UPDATE post set post_title=?,text=? where post_id=?",[title,text,post_id],
+    function(err,rows,fields){
+        if(err){
+            console.log("수정 실패");
+            // console.log(err);
+        }else{
+            console.log("수정 성공");
+        };
+    });
+
 });
 
 
