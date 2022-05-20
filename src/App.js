@@ -23,6 +23,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import Start from "./Components/Start";
 import Postpage from "./Components/Postpage";
+import UpdatePost from "./Components/UpdatePost";
 import Posting from "./Components/Posting";
 import signup from "./Components/Signup";
 import mypage from "./Components/Mypage";
@@ -50,6 +51,7 @@ export default class App extends Component {
 <Route exact={true} path="/Postpage/:key" component={Postpage} />
 <Route exact={true} path="/Postpage/" component={Postpage} />
 <Route exact={true} path="/Posting/:post_id" component={Posting} />
+<Route exact={true} path="/UpdatePost/:post_id" component={UpdatePost} />
 <Route exact={true} path="/mypage" component={mypage} />
       </div>
     )
