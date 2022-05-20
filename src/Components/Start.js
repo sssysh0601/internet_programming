@@ -4,6 +4,7 @@ import Header from "./Header";
 import Contents from "./contents";
 import Footer from "./Footer";
 import Logincontent from "./Logincontent";
+import LoginHeader from "./LoginHeader";
 
 function Start(){
   const [isLogin, setIsLogin] = useState(false)
@@ -22,11 +23,11 @@ function Start(){
 
     return (
         <div className="App">
-        <Header />
+     
         {isLogin? 
-        <Logincontent isLogin={isLogin}/>
+        <><LoginHeader /><Logincontent isLogin={isLogin} /></> 
         :
-        <Contents/>
+        <><Header /><Contents /></>
 }
         <Footer />
       </div>
