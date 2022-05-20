@@ -1,7 +1,5 @@
 .container {
     width: 80%;
-    float: left;
-    margin-left: 20px;
     margin-top: 30px;
     border: 5px solid #000000;
     border-radius: 20px;
@@ -32,11 +30,10 @@
     border-style: hidden;
     box-shadow: 0 0 0 4px #000;
     border-collapse: collapse;
-    
+    width: 100%;
 }
 
 .logintable input{
-    width: 70%;
     height: 30px;
     border-radius: 30px;
     margin-top: 10px;
@@ -178,3 +175,6 @@ button.btn2 {
   button.btn2:hover {
     background-image: url(/src/image/btn_right_hover.png);
   }
+  .board_list>thead>tr{
+      background-color: red;
+    }

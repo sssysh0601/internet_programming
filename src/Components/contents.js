@@ -96,7 +96,6 @@ function Contents(props) {
    const getpost = ()=>{
       const user = {
          ID: ID,
-         pass: pass,
       };
 
       fetch("http://localhost:3001/getpost", {
@@ -191,8 +190,6 @@ function Contents(props) {
    return (
       <><div className="side">
          <table className="logintable" border='1'>
-         {!props.isLogin?
-               <>
                   <tr>
                   <h5>ID</h5>
                      <input onChange={handleChange1} name="id" placeholder="ID" autoComplete="off"/>
@@ -204,33 +201,8 @@ function Contents(props) {
                   </tr>
                   <button onClick={submituser}>로그인</button>
                   <Link to="/signup"><button>회원가입</button></Link>
-               </>
-             :<>
-             <tr>
-             <span>ID : {temppass.ID}</span>
-          </tr>
-          <tr>&nbsp;</tr>
-          <tr>
-          <span>작성한 게시글 : {postcnt.count}</span>
-          </tr>
-                 </>}
+         
          </table>
-         <div className="side">
-            <table>
-               <tr>
-                  <input onChange={handleChange3} name="id" placeholder="글종류"  autoComplete="off"/>
-               </tr>
-               <tr>
-                  <input onChange={handleChange4} name="id" placeholder="글제목"  autoComplete="off"/>
-               </tr>
-               <tr>
-                  <input onChange={handleChange5} name="id" placeholder="작성자"  autoComplete="off"/>
-               </tr>
-               <button onClick={submitpost}>추가하기</button>
-               <button onClick={loadpost}>새로고침</button>
-               <button onClick={deletepost}>삭제</button>
-            </table>
-         </div>
       </div>
 
          <div className="container" style={{ fontFamily: 'Noto Sans Korean,Malgun Gothic,sans-serif' }}>
@@ -254,29 +226,29 @@ function Contents(props) {
                         </tr>
                      </thead>
                      <tbody>
-                        <tr>
+                     {post != "" ? <>    <tr>
+                           <td>-</td>
+                           <td className="text-left">
+                              <Link to="/">명지NOTICE 이용방법</Link></td>
+                           <td>10조</td>
+                           <td>-</td>
+                        </tr>
+                        
+                           {post.map(posting => <tr>
+                              <td>{posting.post_id}</td>
+                              <td className="text-left">
+                                 <Link to={`/posting/${posting.post_id}`}>
+                                    {posting.post_title}</Link></td>
+                              <td>{posting.post_writer}</td>
+                              <td>{posting.post_date}</td>
+                           </tr>)}</>
+                           : <>    <tr>
                            <td></td>
                            <td className="text-left">
                               <Link to="/">명지NOTICE 이용방법</Link></td>
                            <td>10조</td>
                            <td></td>
-                        </tr>
-                        {post != "" ? <>
-                           {post.map(posting => <tr>
-                              <td>{posting.post_id}</td>
-                              <td className="text-left">
-                                 <Link to="/posting:{posting.post_id}">
-                                    {posting.post_title}</Link></td>
-                              <td>{posting.post_writer}</td>
-                              <td>{posting.post_date}</td>
-                           </tr>)}</>
-                           : <><tr>
-                              <td>&nbsp;</td>
-                              <td></td>
-                              <td> </td>
-                              <td></td>
-                              <td></td>
-                           </tr></>}
+                        </tr></>}
                      </tbody>
                   </table>
                </div>
