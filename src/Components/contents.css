@@ -19,7 +19,8 @@
     padding-top: 34px;
     text-align: center;
     float: right;
-    padding-right: 15px;
+    padding-right: 1%;
+
    }
 
 .logintable{
@@ -28,6 +29,8 @@
     margin-right: 10px;
     border-radius: 10px;
     border-style: hidden;
+    width: 240px;
+    height: 250px;
     box-shadow: 0 0 0 4px #000;
     border-collapse: collapse;
     width: 100%;
