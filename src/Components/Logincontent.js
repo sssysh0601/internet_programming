@@ -176,22 +176,6 @@ function Contents(props) {
           <button type='button' onClick={onLogout}>로그아웃</button>
           </tr>
          </table>
-         <div className="side">
-            <table>
-               <tr>
-                  <input onChange={handleChange3} name="id" placeholder="글종류"  autoComplete="off"/>
-               </tr>
-               <tr>
-                  <input onChange={handleChange4} name="id" placeholder="글제목"  autoComplete="off"/>
-               </tr>
-               <tr>
-                  <input onChange={handleChange5} name="id" placeholder="작성자"  autoComplete="off"/>
-               </tr>
-               <button onClick={submitpost}>추가하기</button>
-               <button onClick={loadpost}>새로고침</button>
-               <button onClick={deletepost}>삭제</button>
-            </table>
-         </div>
       </div>
 
          <div className="container" style={{ fontFamily: 'Noto Sans Korean,Malgun Gothic,sans-serif' }}>
@@ -201,10 +185,7 @@ function Contents(props) {
                <div className="tablediv">
                   <table className="board_list text-center" border="1">
                      <colgroup>
-                        <col width="10%" />
-                        <col width="50%" />
-                        <col width="*" />
-                        <col width="*" />
+ 
                      </colgroup>
                      <thead>
                         <tr>
@@ -215,14 +196,15 @@ function Contents(props) {
                         </tr>
                      </thead>
                      <tbody>
-                        <tr>
+                    
+                        {post != "" ? <>    <tr>
                            <td></td>
                            <td className="text-left">
                               <Link to="/">명지NOTICE 이용방법</Link></td>
                            <td>10조</td>
                            <td></td>
                         </tr>
-                        {post != "" ? <>
+                        
                            {post.map(posting => <tr>
                               <td>{posting.post_id}</td>
                               <td className="text-left">
@@ -231,13 +213,13 @@ function Contents(props) {
                               <td>{posting.post_writer}</td>
                               <td>{posting.post_date}</td>
                            </tr>)}</>
-                           : <><tr>
-                              <td>&nbsp;</td>
-                              <td></td>
-                              <td> </td>
-                              <td></td>
-                              <td></td>
-                           </tr></>}
+                           : <>    <tr>
+                           <td></td>
+                           <td className="text-left">
+                              <Link to="/">명지NOTICE 이용방법</Link></td>
+                           <td>10조</td>
+                           <td></td>
+                        </tr></>}
                      </tbody>
                   </table>
                </div>
