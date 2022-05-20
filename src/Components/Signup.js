@@ -2,6 +2,7 @@ import React, { Component, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import './Signup.css';
 import Header from "./Header";
+import Footer from "./Footer";
 function Signup() {
     const handleChange1 = (e) => {
         setId(e.target.value);
@@ -35,7 +36,8 @@ function Signup() {
             .then((json) => {
                 setUser(json);
             });
-
+alert("회원 가입 성공");
+window.location.replace("/");
     };
     return (
         <div className="App">
@@ -63,11 +65,13 @@ function Signup() {
                         {pass == temppass ?
                             <> {pass === '' ?
                             <>
-                            <span>비밀번호를 입력해주세요.</span><input type="submit" disabled={false} value="submit" onClick={submitSignup} />
+                            <span>비밀번호를 입력해주세요.</span>
+                            <input type="submit" disabled={true} value="submit" onClick={submitSignup} />
                             </>
                             :
                             <>
-                            <span>비밀번호가 일치합니다.</span><input type="submit" disabled={false} value="submit" onClick={submitSignup} />
+                            <span>비밀번호가 일치합니다.</span>
+                            <input type="submit" disabled={false} value="submit" onClick={submitSignup} />
                             </>
                             }
                             </>
@@ -79,6 +83,7 @@ function Signup() {
                     </div>
                 </div>
             </div>
+            <Footer/>
         </div>
     )
 } export default Signup;
