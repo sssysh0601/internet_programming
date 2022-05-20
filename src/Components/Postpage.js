@@ -1,3 +1,5 @@
+//게시글 작성 화면
+
 import React, { Component, useState, useEffect } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
@@ -39,7 +41,7 @@ function Postpage({ match }) {
         <div className="App">
             <Header />
             <div className='container'>
-                <h1>게시글작성</h1>
+                <h1>게시글 작성</h1>
                 <div>
                     <input className="title" onChange={handleChange} name="title" placeholder="제목" autoComplete="off" />
 
