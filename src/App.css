@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,300&display=swap');
 .App{
-    height: 100vh;
+    margin-top: 5vh;
     padding-top: 100px;
     min-height: 100%;
     font-family: 'Roboto', sans-serif;
