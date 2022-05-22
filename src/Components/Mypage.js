@@ -1,7 +1,7 @@
 import React, { Component, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import './Mypage.css';
-import Header from "./Header";
+import LoginHeader from "./LoginHeader";
 import Footer from "./Footer";
 
 function Mypage() {
@@ -68,7 +68,7 @@ function Mypage() {
       };
 return (
     <div className="App">
-        <Header />
+        <LoginHeader />
         <div class="wrap">
             <div class="mypage">
                 <img id="imgLogin" src="img_mypage.png" alt="login text" />
