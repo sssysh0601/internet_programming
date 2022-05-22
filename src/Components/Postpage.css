@@ -4,9 +4,28 @@
   }
   .ck-editor__editable_inline {
     min-height: 50vh;
+    max-height: 50vh;
 }
 .title{
     width: 100vh;
     font-size: 30px;
     margin:30px 0px;
+}
+
+.wrapPost {
+  width: 60%;
+  float: left;
+  margin-left:5vh;
+  margin-top: 3vh;
+  border: 5px solid #000000;
+  border-radius: 20px;
+  background-image: url(/public/img_logo.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: white;
+  background-position-x: center 10px;
+  text-align: center;
+  height: 85vh;
+  margin-bottom: 8vh;
+  
 }

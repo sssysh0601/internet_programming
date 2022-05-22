@@ -41,7 +41,8 @@ function Postpage({ match }) {
     return (
         <div className="App">  
             <Header />
-            <div className='container'>
+            <div className="wrap">
+                <div className="wrapPost">
                 <h1>게시글 작성</h1>
                 <div>
                     <input className="title"  onChange={handleChange} name="title" placeholder="제목" autoComplete="off" />
@@ -63,6 +64,7 @@ function Postpage({ match }) {
 
                 <button className="submit-button" onClick={()=>{submitpost()}}>등록</button>
                 <Link to='/'><button>돌아가기</button></Link>
+                </div>
             </div>
             <Footer />
         </div>

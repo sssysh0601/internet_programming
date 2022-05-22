@@ -73,7 +73,7 @@ const getcommend=()=>{
     return (
         < div className="App" >
             <LoginHeader />
-            <div className="wrap">
+            <div className="wrapPosting">
                 <div className="posting">
 
                     <div className="postingcotent">
@@ -100,16 +100,16 @@ const getcommend=()=>{
                             <input type="submit" value="댓글작성" onClick={submit} />
                         </div>
                         {commends.map(commends =>
-                            <div style={{width:'80vh',margin:'0 auto', border: '1px black solid', height: '8vh', backgroundColor: '#FFFFFF',textAlign:'left' }}>
-                            <div >
+                        <div className="wrapComment">
+                            <div>
                                 <h6>작성자: {commends.ID}
                                 </h6>
                             </div>
-                            <div style={{ display: 'inline-block', float: 'left' }}>
+                            <div style={{ }}>
                                 <h4>{commends.text}
                                 </h4>
                             </div>
-                            <div style={{ display: 'inline-block', float: 'right' }}>
+                            <div style={{ }}>
                                 <h6>{commends.commend_date}
                                 </h6>
                             </div>

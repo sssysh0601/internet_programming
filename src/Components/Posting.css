@@ -1,8 +1,13 @@
+.wrapPosting {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background: rgba(0, 0, 0, 0.1); */
+}
+
 .posting {
     width: 60%;
-    float: left;
-    margin-left:5vh;
-    margin-top: 3vh;
     border: 5px solid #000000;
     border-radius: 20px;
     background-image: url(/public/img_logo.png);
@@ -11,7 +16,8 @@
     background-color: white;
     background-position-x: center 10px;
     text-align: center;
-    height: 85vh;
+    overflow:hidden;
+    height:auto;
     margin-bottom: 8vh;
     
 }
@@ -25,7 +31,9 @@
     margin-right: 100px;
     border-radius: 10px;
     margin-top: 20px;
-    height: 70vh;
+    min-height: 70vh;
+    overflow:hidden;
+	height:auto;
 }
 
 .postingdiv{
@@ -33,3 +41,12 @@
     padding-top: 5vh;
 }
 
+.wrapComment{
+    width:80vh;
+    margin:0 auto;
+    border: 1px black solid;
+    background-color: #FFFFFF;
+    text-align:left;
+    white-space:normal;
+    word-break:break-all;
+}
