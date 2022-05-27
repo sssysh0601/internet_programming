@@ -87,8 +87,8 @@ useEffect(()=>{
                 />
 
 
-                <button className="submit-button" onClick={()=>{submitpost()}}>수정</button>
-                <Link to='/'><button>돌아가기</button></Link>
+                <input  type="button"    className="commendinputbtn"  onClick={()=>{submitpost()}} value="게시글 수정"/>
+                <Link to='/mypage'><input type="button"    className="commendinputbtn"  value="돌아가기"/></Link>
             </div>
             
             <Footer />
