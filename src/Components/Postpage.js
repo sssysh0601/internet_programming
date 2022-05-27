@@ -7,8 +7,13 @@ import { Link } from "react-router-dom";
 import { CKEditor } from '@ckeditor/ckeditor5-react'
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
 import './Postpage.css'
+
+
+
 function Postpage({ match }) {
 
+
+    
     const [text, setText] = useState('');
     const [title, setTitle] = useState('');
     const [writer, setWriter] = useState(sessionStorage.getItem('user_id'));
@@ -35,6 +40,7 @@ function Postpage({ match }) {
            },
            body: JSON.stringify(post),
         })
+        alert("게시글 작성 완료")
         window.location.replace("/");
      };
 
@@ -62,8 +68,8 @@ function Postpage({ match }) {
                     }}
                 />
 
-                <button className="submit-button" onClick={()=>{submitpost()}}>등록</button>
-                <Link to='/'><button>돌아가기</button></Link>
+                <input className="commendinputbtn" onClick={()=>{submitpost()}} type="button"  value="게시글 등록"/>
+                <Link to='/'><input type="button"    className="commendinputbtn"  value="돌아가기"/></Link>
                 </div>
             </div>
             <Footer />
