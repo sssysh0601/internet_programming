@@ -15,6 +15,9 @@ const rows = [
    createData("/img1.jpg"),
    createData("/img2.jpg"),
    createData("/img3.jpg"),
+   createData("/img4.jpg"),
+   createData("/광고2.jpg"),
+   createData("/광고3.jpg"),
 
 ]
 
@@ -44,34 +47,9 @@ function Contents(props) {
 
 
 
-   const [ID, setId] = useState('');
-   const [pass, setPass] = useState('');
-   const [temppass, setTemppass] = useState([]);
+
    const [postcnt, setpostcnt] = useState(0);
-   const [login, setlogin] = useState(false);
-
-   const [text, setText] = useState('');
-   const [title, setTitle] = useState('');
-   const [writer, setWriter] = useState('');
    const [post, setPost] = useState([]);
-
-
-   const handleChange1 = (e) => {           //ID 핸들러
-      setId(e.target.value);
-   };
-   const handleChange2 = (e) => {           //비밀번호 핸들러
-      setPass(e.target.value);
-   };
-
-   const handleChange3 = (e) => {          //글종류 핸들러
-      setText(e.target.value);
-   };
-   const handleChange4 = (e) => {          //글제목 핸들러
-      setTitle(e.target.value);
-   };
-   const handleChange5 = (e) => {          //작성자 핸들러
-      setWriter(e.target.value);
-   };
 
 
    const getpost = ()=>{
@@ -92,56 +70,6 @@ function Contents(props) {
          });
       }
       
-
-   const submitpost = () => {            //포스팅 추가 (임시)
-      const post = {
-         kind: text,
-         title: title,
-         writer: writer,
-         ID: sessionStorage.getItem('user_id'),
-      };
-
-      fetch("http://localhost:3001/write", {
-         method: "post", // 통신방법
-         headers: {
-            "content-type": "application/json",
-         },
-         body: JSON.stringify(post),
-      })
-      loadpost();
-   };
-
-
-   const loadpost = () => {               //포스팅 새로 고침해서 가져오기
-      fetch("http://localhost:3001/load", {
-         method: "post",
-         headers: {
-            "content-type": "application/json",
-         },
-         body: JSON.stringify(),
-      })
-         .then((res) => res.json())
-         .then((json) => {
-            setPost(json);
-         });
-         getpost();
-   };
-
-   const deletepost = () => {               //포스팅 삭제
-      fetch("http://localhost:3001/deletepost", {
-         method: "post",
-         headers: {
-            "content-type": "application/json",
-         },
-         body: JSON.stringify(),
-      })
-         .then((res) => res.json())
-         .then((json) => {
-            setPost("");
-         });
-         getpost();
-   };
-
    useEffect(() => {                        //포스팅 가져오기 
       fetch("http://localhost:3001/load", {
          method: "post",
@@ -177,6 +105,11 @@ function Contents(props) {
           </tr>
          </table>
       </div>
+      <div className="leftside">
+      <a href="https://www.mju.ac.kr/sites/mjukr/intro/intro.html" target='_blank'>
+         <img className="MJU" src="/MJU.jpg"/>
+         </a>
+      </div>
 
          <div className="container" style={{ fontFamily: 'Noto Sans Korean,Malgun Gothic,sans-serif' }}>
             <div className="lf-menu-nav"><button class="btn1" type="button" onClick={previmg}>버튼1</button><img className="imgslide" src={image}></img>
@@ -200,8 +133,8 @@ function Contents(props) {
                         {post != "" ? <>    <tr>
                            <td></td>
                            <td className="text-left">
-                              <Link to="/">명지NOTICE 이용방법</Link></td>
-                           <td>10조</td>
+                              <Link to={`/Notice`}>명지NOTICE 이용방법</Link></td>
+                           <td>운영자</td>
                            <td></td>
                         </tr>
                         
