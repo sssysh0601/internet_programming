@@ -49,9 +49,6 @@ function Contents(props) {
    const [ID, setId] = useState('');
    const [pass, setPass] = useState('');
    const [temppass, setTemppass] = useState([]);
-   const [postcnt, setpostcnt] = useState(0);
-   const [login, setlogin] = useState(false);
-
    const [post, setPost] = useState([]);
 
 
@@ -83,32 +80,13 @@ function Contents(props) {
          });
 
    };
-
-   const getpost = ()=>{
-      const user = {
-         ID: ID,
-      };
-
-      fetch("http://localhost:3001/getpost", {
-         method: "post", // 통신방법
-         headers: {
-            "content-type": "application/json",
-         },
-         body: JSON.stringify(user),
-      })
-         .then((res) => res.json())
-         .then((json) => {
-            setpostcnt(json)
-         });
-      }
       
    useEffect(() => {
       
       if (temppass.pass === pass) {
          alert("로그인성공");
-        setlogin(true);
         sessionStorage.setItem('user_id', ID)
-        getpost();
+
         document.location.href='/';
       }
 

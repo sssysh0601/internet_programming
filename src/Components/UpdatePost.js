@@ -1,7 +1,7 @@
 //게시글 수정 화면
 
 import React, { Component, useState, useEffect } from "react";
-import Header from "./Header";
+import LoginHeader from "./LoginHeader";
 import Footer from "./Footer";
 import { Link } from "react-router-dom";
 import { CKEditor } from '@ckeditor/ckeditor5-react'
@@ -20,8 +20,7 @@ function UpdatePost() {
 
 
     const submitpost = () => {            //포스팅 수정
-        alert(text);
-        alert(title);
+        alert("수정되었습니다.")
         const post = {
            title: title,
            text:text,
@@ -64,7 +63,7 @@ useEffect(()=>{
 
     return (    
         <div className="App">
-            <Header />
+            <LoginHeader />
             <div className='container'>
                 <h1>게시글 수정</h1>
                 <div>
@@ -87,7 +86,7 @@ useEffect(()=>{
                 />
 
 
-                <input  type="button"    className="commendinputbtn"  onClick={()=>{submitpost()}} value="게시글 수정"/>
+<Link to='/mypage'> <input  type="button"    className="commendinputbtn"  onClick={()=>{submitpost()}} value="게시글 수정"/></Link>
                 <Link to='/mypage'><input type="button"    className="commendinputbtn"  value="돌아가기"/></Link>
             </div>
             

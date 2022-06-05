@@ -39,7 +39,6 @@ function Posting({ match }) {
     }
 
     const submit = () => {
-        alert(sessionStorage.getItem('user_id') + commend + post_id)
         if (commend != "") {
             const user = {
                 ID: sessionStorage.getItem('user_id'),

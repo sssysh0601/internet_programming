@@ -1,7 +1,7 @@
 //게시글 작성 화면
 
 import React, { Component, useState, useEffect } from "react";
-import Header from "./Header";
+import LoginHeader from "./LoginHeader";
 import Footer from "./Footer";
 import { Link } from "react-router-dom";
 import { CKEditor } from '@ckeditor/ckeditor5-react'
@@ -46,7 +46,7 @@ function Postpage({ match }) {
 
     return (
         <div className="App">  
-            <Header />
+            <LoginHeader />
             <div className="wrap">
                 <div className="wrapPost">
                 <h1>게시글 작성</h1>
